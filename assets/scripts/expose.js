@@ -2,6 +2,8 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
+const jsConfetti = new JSConfetti();
+
 function init() {
   var horn = document.getElementById('horn-select');
   var hornSound = document.querySelector('audio');
@@ -47,5 +49,10 @@ function init() {
   });
 
   var playSoundButton = document.querySelector('button');
-  playSoundButton.addEventListener()
+  playSoundButton.addEventListener('click', function() {
+    hornSound.play();
+    if (horn.value == 'party-horn') {
+      jsConfetti.addConfetti();
+    }
+  });
 }
