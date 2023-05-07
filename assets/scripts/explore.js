@@ -30,14 +30,15 @@ function init() {
     }
 
     synth.speak(speak);
+    
+    var synthImg = document.querySelector('img');
 
-    if (synth.speaking) {
-      var synthImg = document.querySelector('img');
+    speak.onstart = function() {
       synthImg.src = 'assets/images/smiling-open.png';
     }
-  });
 
-  if (!synth.speaking) {
-    synthImg.src = 'assets/images/smiling.png';
-  }
+    speak.onend = function() {
+      synthImg.src = 'assets/images/smiling.png';
+    }
+  });
 }
